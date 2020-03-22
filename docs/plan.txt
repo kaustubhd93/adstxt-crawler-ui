@@ -1,0 +1,12 @@
+# Upload file API
+
+- a basic form with one button for uploading csv files.
+- once it has been uploaded, print the text in logs.
+- once content is validated, schedule a spider by checking.
+- decide if celery would be the right way to do this or something else.
+
+# View my crawls
+
+# My downloads - related to view my crawls.
+
+# specific download location

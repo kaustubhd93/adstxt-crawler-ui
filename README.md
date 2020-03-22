@@ -7,7 +7,6 @@
 ### What is ads.txt?
 - [Tell me](https://github.com/kaustubhd93/adstxt-crawler/wiki/Ads.txt-concepts)  
 
-
 ## Format for file with list of domains.
 NOTE: List of domains should be written separately each on a new line.  
 ```
@@ -16,3 +15,13 @@ domain2.xyz
 www.domain3.xyz  
 ```
 
+## File structure
+
+```
+adstxt/           --- Helper scripts, spiders and other scrapy files.  
+adstxtui/         --- All UI related files.  
+archives/         --- Old archived code for reference.  
+crawl.sh          --- script to run spiders.  
+docs/             --- Required documents for reference.  
+requirements.txt  --- List of python libraries required by this app.  
+```
