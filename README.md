@@ -8,7 +8,7 @@
 - [Tell me](https://github.com/kaustubhd93/adstxt-crawler/wiki/Ads.txt-concepts)  
 
 
-## Format for file with list of domains.https://github.com/kaustubhd93/adstxt-crawler.git
+## Format for file with list of domains.
 NOTE: List of domains should be written separately each on a new line.  
 ```
 domain1.xyz  
