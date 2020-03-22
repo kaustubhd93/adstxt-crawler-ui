@@ -3,7 +3,7 @@
 - Once crawling is done. User can download the tar file which will have all ads.txt content in csv format.
 
 ### What is ads.txt?
-- [Know more](https://github.com/kaustubhd93/adstxt-crawler/wiki/Ads.txt-concepts)  
+- [Tell me](https://github.com/kaustubhd93/adstxt-crawler/wiki/Ads.txt-concepts)  
 
 
 # Format for file with list of domains.
