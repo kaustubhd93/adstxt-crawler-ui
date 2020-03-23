@@ -1,0 +1,8 @@
+<h1>Upload file with list of domains to crawl their ads.txt</h1>
+
+<form enctype="multipart/form-data" action="{% url 'adstxtwebapp:upload_file' %}" method="post">
+  {% csrf_token %}
+  <label for="domainfile">Select File:</label>
+  <input type="file" id="domainfile" name="domainfile"><br><br>
+  <input type="submit">
+</form>
