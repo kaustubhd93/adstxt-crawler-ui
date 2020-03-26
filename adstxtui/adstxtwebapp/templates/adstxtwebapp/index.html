@@ -1,8 +1,16 @@
-<h1>Upload file with list of domains to crawl their ads.txt</h1>
+<h1>Please login to continue</h1>
 
-<form enctype="multipart/form-data" action="{% url 'adstxtwebapp:upload_file' %}" method="post">
-  {% csrf_token %}
-  <label for="domainfile">Select File:</label>
-  <input type="file" id="domainfile" name="domainfile"><br><br>
-  <input type="submit">
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form enctype="multipart/form-data" action="{% url 'adstxtwebapp:app_login' %}" method="post">
+{% csrf_token %}
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit">Login</button>
 </form>
