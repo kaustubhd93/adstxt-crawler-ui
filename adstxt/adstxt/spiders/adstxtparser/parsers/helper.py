@@ -30,12 +30,16 @@ class HelperFunctions():
 
         logger.handlers = []
 
-    def write_to_csv(self, listInfo, fileName, fieldNames=["partner","pubid","relation"], overwrite=False):
+    def write_to_csv(self, listInfo, jobId, fileName,
+                        fieldNames=["partner","pubid","relation"], overwrite=False):
         timeFormat = time.strftime("%Y-%m-%d-%H-%M")
+        csvDir = projectDir + "/csv/" + jobId
+        if not os.path.exists(csvDir):
+            os.makedirs(csvDir)
         if not overwrite:
-            csvFileName = projectDir + "/csv/" + fileName + "-" + timeFormat + ".csv"
+            csvFileName = csvDir + "/" + fileName + "-" + timeFormat + ".csv"
         else:
-            csvFileName = projectDir + "/csv/" + fileName + ".csv"
+            csvFileName = csvDir + "/" + fileName + ".csv"
         with open(csvFileName, "w") as fileData:
             writer = csv.DictWriter(fileData, fieldnames=fieldNames)
             writer.writeheader()

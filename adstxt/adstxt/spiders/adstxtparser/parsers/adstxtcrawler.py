@@ -1,7 +1,10 @@
 import json
 import re
 
-from multiprocessing import Manager
+# Using billiard which is actually a fork of multiprocessing
+# This is done to avoid this error
+# "daemonic processes are not allowed to have children"
+from billiard import Manager
 # Python 3 change
 from .helper import HelperFunctions
 
@@ -9,7 +12,7 @@ manager = Manager()
 hlp = HelperFunctions()
 crawledDomains = manager.list()
 
-def get_ads_txt(domain, data):
+def get_ads_txt(domain, data, jobId):
     # Python 3 change
     # The string in each item list is binary.
     # Using decode converts it to str
@@ -53,5 +56,5 @@ def get_ads_txt(domain, data):
 
         adstxt = {"domain" : domain,
                 "adstxt" : csvinventoryDetails}
-        hlp.write_to_csv(adstxt["adstxt"],fileName=domain,fieldNames=["partner","pubId","relation","tagId"])
+        hlp.write_to_csv(adstxt["adstxt"], jobId, fileName=domain, fieldNames=["partner","pubId","relation","tagId"])
         crawledDomains.append(domain)

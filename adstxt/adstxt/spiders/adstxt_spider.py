@@ -1,7 +1,10 @@
 import sys
 import scrapy
 
-from multiprocessing import Manager
+# Using billiard which is actually a fork of multiprocessing
+# This is done to avoid this error
+# "daemonic processes are not allowed to have children"
+from billiard import Manager
 # Importing parsing logic and helper functions.
 # NOTE: There is a in built package "parser" that is shipped by default in Python 3.
 # Python 3 change
@@ -13,8 +16,10 @@ failedDomains = manager.list()
 class AdstxtSpider(scrapy.Spider):
     name = "adstxt"
 
-    def start_requests(self, fileName=""):
-        fObj = open(self.fileName, "r+")
+    def start_requests(self, fileInfo=""):
+        self.jobId = self.fileInfo.split(":")[0]
+        fileName = self.fileInfo.split(":")[1]
+        fObj = open(fileName, "r+")
         domainList = fObj.readlines()
         fObj.close()
         domainList = map(lambda x: x.strip("\n"), domainList)
@@ -25,7 +30,7 @@ class AdstxtSpider(scrapy.Spider):
 
     def parse(self, response):
         domain = response.url.split("/")[-2]
-        adstxtcrawler.get_ads_txt(domain, response.body)
+        adstxtcrawler.get_ads_txt(domain, response.body, self.jobId)
         self.logger.debug("Saved file for domain {}".format(domain))
 
     def http_error(self, failure):
