@@ -27,3 +27,15 @@ result_five = add_these.delay(45,34)
 result_six = add_these.delay(90,45)
 result_seven = add_these.delay(4,50)
 result_eight = add_these.delay(9,45)
+
+
+python schedule_crawl.py 395cb70d-1645-4800-af71-7566743b0b25:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 5cfb8677-2375-4d73-89d1-80e4c57efb32:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 98364b70-b20c-4a91-9c7e-771b3261ac1c:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 03fb3eac-ff1e-4ba7-a0f1-ddcc457b8c0e:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py c51426af-b08d-440c-9dc1-41d7f4113012:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 45e4013a-6980-4bc4-8ff0-9221512c05fc:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 87f59036-1e6b-4d82-997a-5aa2469d93a0:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 6c5f74e7-83bc-4196-9e92-a6632fc51170:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 9272f5a4-6fad-497b-8c6c-02f6dec8eec8:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
+python schedule_crawl.py 6bd42a93-20d5-423e-be93-18b68571dc09:/home/kaustubh/Workspace/adstxt-crawler-ui/docs/sample/sample4
