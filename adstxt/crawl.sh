@@ -9,13 +9,11 @@ scrapy crawl -a fileInfo=$1 adstxt
 lastStatusCode=$(echo $?)
 if [ $lastStatusCode -ne 0 ]
 then
-    echo "******************************************************************************"
-    echo "Something went wrong here."
-    echo "******************************************************************************"
+    echo "******************************************************************************" >> crawl.sh.log
+    echo "Something went wrong here. Please check scrapy.log" >> crawl.sh.log
+    echo "******************************************************************************" >> crawl.sh.log
 else
-    echo "******************************************************************************"
-    echo "All scraped csv files are in `pwd`/csv"
-    echo "******************************************************************************"
-    echo "If there were urls that could not be scraped, refer log file: `pwd`/scrapy.log"
-    echo "******************************************************************************"
+    jobId=`echo $1 | awk -F ":" '{print $1}'`
+    echo "Done crawling for jobId $jobId sending for compressing." >> crawl.sh.log
+    python schedule_zip.py $jobId
 fi
