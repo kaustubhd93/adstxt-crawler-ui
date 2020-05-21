@@ -1,9 +1,11 @@
+import time
 import sys
 import subprocess
 import pika
-
 import app_config
+from redis_helper import RedisTasks
 
+redisConn = RedisTasks()
 credentials = pika.PlainCredentials(app_config.rabbitmq_username, app_config.rabbitmq_password)
 parameters = pika.ConnectionParameters("localhost",
                                         app_config.rabbitmq_port,
@@ -25,7 +27,10 @@ def shell_me(cmd):
         return str(stderr)
 
 def callback(ch, method, properties, body):
+    content = body.decode()
+    jobId = content.split(":")[0]
     print(" [x] Received task with jobId:filePath = {}".format(body.decode()))
+    redisConn.update_job_status(jobId, "running")
     shell_me("/bin/bash crawl.sh {}".format(body.decode()))
     print(" [x] Done")
     # Acknowledgment for message received and processed.

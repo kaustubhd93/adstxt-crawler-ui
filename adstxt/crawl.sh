@@ -14,6 +14,6 @@ then
     echo "******************************************************************************" >> crawl.sh.log
 else
     jobId=`echo $1 | awk -F ":" '{print $1}'`
-    echo "Done crawling for jobId $jobId sending for compressing." >> crawl.sh.log
+    echo "Done crawling for jobId $jobId." >> crawl.sh.log
     python schedule_zip.py $jobId
 fi
