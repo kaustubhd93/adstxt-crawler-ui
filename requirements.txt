@@ -15,6 +15,7 @@ ipaddress==1.0.22
 lxml==4.3.3
 mysqlclient==1.4.6
 parsel==1.5.1
+pika==1.1.0
 pkg-resources==0.0.0
 plumbum==1.6.7
 Protego==0.1.16
