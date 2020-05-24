@@ -1,4 +1,4 @@
-# Please note this is a work in progress. If you just want to use the script, [check this out](https://github.com/kaustubhd93/adstxt-crawler.git)
+# Please note this is a work in progress. If you just want to use the script, [use this](https://github.com/kaustubhd93/adstxt-crawler.git)
 
 ## A WEB app for crawling ads.txt of desired domains
 - User will login with credentials, upload a file with a list of domains in a certain format and schedule a crawl.
