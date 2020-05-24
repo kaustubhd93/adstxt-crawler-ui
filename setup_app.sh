@@ -19,6 +19,8 @@ make distclean
 make
 make test
 sudo make install
+mkdir -p ~/redis/6379
+sudo mkdir -p /var/log/redis/
 
 # Copy redis configuration file from source, make config changes and also setup required directories.
 
