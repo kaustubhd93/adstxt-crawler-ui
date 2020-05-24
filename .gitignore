@@ -3,3 +3,4 @@
 *.csv
 *.sqlite3
 *.zip
+celery_testing.txt

@@ -3,7 +3,9 @@ import pika
 
 import app_config
 from redis_helper import RedisTasks
+from adstxt.spiders.adstxtparser.parsers.helper import HelperFunctions
 
+hlpObj = HelperFunctions()
 redisConn = RedisTasks()
 message = sys.argv[1]
 credentials = pika.PlainCredentials(app_config.rabbitmq_username, app_config.rabbitmq_password)
@@ -20,13 +22,13 @@ crawlerDownloadPath = app_config.crawler_download_path + jobId
 userDownloadPath = app_config.user_download_path + jobId + ".zip"
 # Registering Job in Redis.
 if redisConn.register_job(jobId, crawlerDownloadPath, userDownloadPath):
-    print(" [x] Sending task message.")
+    hlpObj.py_logger(" [x] Sending task message {}.".format(message), name="publisher")
     channel.basic_publish(exchange = "",
                         routing_key = "crawl_ads_txt",
                         body = message,
                         # This will make messages persistent
                         properties = pika.BasicProperties(delivery_mode = 2))
-    print(" [x] Sent {}".format(message))
+    hlpObj.py_logger(" [x] Sent {}".format(message), name="publisher")
 else:
-    print("Something went wrong while registering new job with job id {}.".format(jobId))
+    hlpObj.py_logger("Something went wrong while registering new job with job id {}.".format(jobId), name="publisher")
 connection.close()
