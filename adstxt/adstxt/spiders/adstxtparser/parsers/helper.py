@@ -8,6 +8,9 @@ projectDir = os.getcwd()
 class HelperFunctions():
 
     def py_logger(self, logData, logType='debug', name='crawler', rotate=False):
+        if not os.path.exists(projectDir + "/logs"):
+            os.makedirs(projectDir + "/logs")
+
         logFileName = projectDir + '/logs/' + name + '.log'
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         logger = logging.getLogger(name)
