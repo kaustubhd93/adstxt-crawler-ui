@@ -4,3 +4,4 @@
 *.sqlite3
 *.zip
 celery_testing.txt
+testing-details.txt
